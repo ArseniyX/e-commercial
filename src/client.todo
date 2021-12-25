@@ -1,0 +1,24 @@
+design:
+  ✔ add mui to index.html @done (23/12/2021, 15:08:28)
+  ✔ create layout @done (23/12/2021, 16:18:54)
+  ✔ add link to sketch @done (23/12/2021, 16:18:55)
+  ✔ put images from sketch to assets images @done (23/12/2021, 16:19:41)
+  ✔ recreate header @done (23/12/2021, 18:52:23)
+  ✔ add products to store @done (23/12/2021, 19:38:38)
+  ✔ create card @done (23/12/2021, 20:17:48)
+  ✔ Add fonts Quicksand and Inter @done (24/12/2021, 16:25:31)
+  ✔ add styled components @done (24/12/2021, 16:29:07)
+  ✔ recreate search bar with sc @done (24/12/2021, 17:04:23)
+  ✔ recreate buttons with sc @done (24/12/2021, 19:09:36)
+  ✘ add global styles @cancelled (24/12/2021, 19:09:48)
+  ✔ create products list @done (25/12/2021, 9:55:50)
+  ✔ style product card @done (25/12/2021, 11:51:41)
+  ✔ make search bar filter @done (25/12/2021, 16:37:10)
+  ✔ add sort functionality @done (25/12/2021, 16:37:20)
+  
+project:
+  ✔ add routes @done (23/12/2021, 15:24:25)
+  ✔ add store @done (23/12/2021, 19:38:28)
+  ✔ make search clear button @done (24/12/2021, 16:20:24)
+  ✔ add categories to constant @done (25/12/2021, 22:29:56)
+  ☐ create accordion with categories
