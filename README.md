@@ -1,3 +1,8 @@
+# e-commercial
+- LIVE: arseniyx.github.io/e-commercial/
+- BACK-END: https://github.com/ArseniyX/e-commercial-server
+- API: https://e-commercial-server.herokuapp.com/products/list/all
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
