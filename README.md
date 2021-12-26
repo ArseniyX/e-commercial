@@ -1,5 +1,5 @@
 # e-commercial
-- LIVE: arseniyx.github.io/e-commercial/
+- LIVE: https://arseniyx.github.io/e-commercial/
 - BACK-END: https://github.com/ArseniyX/e-commercial-server
 - API: https://e-commercial-server.herokuapp.com/products/list/all
 
