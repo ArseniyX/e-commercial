@@ -1,8 +1,8 @@
 import React, { lazy } from "react";
-
-import MainLayout from "../layout";
 import { ProductsStore } from "../store/ProductsStore";
 import Loadable from "../ui-components/Skeleton/Loadable";
+
+const MainLayout = Loadable(lazy(() => import("../layout")));
 
 const ProductsList = Loadable(lazy(() => import("../components/ProductsList")));
 
