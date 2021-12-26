@@ -44,8 +44,7 @@ const ProductsList = observer(({ productsStore }) => {
   const createProductsList = () => {
     const products = productsStore.products?.slice();
     const [rateAvg, countAvg] = getAvg(products);
-    console.log(rateAvg, countAvg);
-    const mapProducts = (product, index) =>
+    const mapProducts = (product) =>
       isFiltered(product) && (
         <ProductCard
           key={key({ length: 7 })}

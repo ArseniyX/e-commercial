@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import Header from "../components/Header";
 import LeftBar from "../components/LeftBar";
-import MenuBar from "../components/MenuBar";
-import RecommendedBar from "../components/RecommendedBar";
 
 const MainContainer = styled.div`
   margin: 20px;
