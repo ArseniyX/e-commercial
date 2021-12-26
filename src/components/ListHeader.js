@@ -7,18 +7,18 @@ const ListHederContainer = styled.div``;
 
 const ListHeader = () => {
 
-  const options = Object.values(SORT);
+  // const options = Object.values(SORT);
 
   return (
     <ListHederContainer>
-      <Autocomplete
+      {/* <Autocomplete
         disablePortal
         value={SORT.RECENTLY_ADDED}
         id="combo-box-demo"
         options={options}
         sx={{ width: 176 }}
         renderInput={(params) => <TextField {...params} label="SORT BY" />}
-      />
+      /> */}
     </ListHederContainer>
   );
 };

@@ -12,7 +12,7 @@ const SearchContainer = styled.div`
 
 const SearchIcon = styled.img`
   width: 16px;
-  margin-right: -25px;
+  margin-right: -35px;
   z-index: 2;
 `;
 
@@ -22,7 +22,7 @@ const StyledInput = styled.input`
   border-radius: 99px;
   width: 670px;
   border: none;
-  padding-left: 30px;
+  padding-left: 40px;
 
   font-style: normal;
   font-weight: normal;
@@ -32,7 +32,7 @@ const StyledInput = styled.input`
 `;
 
 const ClearIcon = styled.img`
-  margin-left: -25px;
+  margin-left: -35px;
   width: 14px;
   cursor: pointer;
 `;

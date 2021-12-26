@@ -1,9 +1,9 @@
-const navBar = [
-  {
-    title: "All Categories",
-    subTitle: "Ecommerce patterns",
-    subCategories: [],
-  },
+// const navBar = [
+//   {
+//     title: "All Categories",
+//     subTitle: "Ecommerce patterns",
+//     subCategories: [],
+//   },
   // {
   //   title: "Electronics",
   //   subTitle: "",
@@ -61,6 +61,6 @@ const navBar = [
   //   subTitle: "",
   //   subCategories: {},
   // },
-];
+// ];
 
-export default navBar;
+// export default navBar;

@@ -15,8 +15,8 @@ const MainLayout = ({ children }) => {
       <div style={{display: "flex", width: "100%"}}>
         <LeftBar />
         <main>
-          <MenuBar />
-          <RecommendedBar />
+          {/* <MenuBar /> */}
+          {/* <RecommendedBar /> */}
           {children}
         </main>
       </div>

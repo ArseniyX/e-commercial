@@ -8,7 +8,7 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { CATEGORIES } from "../utils/constants";
 import key from "random-string";
-
+import { ProductsStore } from "../store/ProductsStore";
 
 export default function CategoriesList() {
   const [open, setOpen] = React.useState(true);
@@ -17,16 +17,15 @@ export default function CategoriesList() {
     setOpen(!open);
   };
 
+  const setCategory = (category) => {
+    ProductsStore.setFilter(category);
+  };
+
   return (
     <List
       sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
       component="nav"
       aria-labelledby="nested-list-subheader"
-      subheader={
-        <ListSubheader component="div" id="nested-list-subheader">
-          Categories:
-        </ListSubheader>
-      }
     >
       <ListItemButton onClick={handleClick}>
         <ListItemText primary="All Categories" />
@@ -35,17 +34,16 @@ export default function CategoriesList() {
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
           {CATEGORIES.map((category) => (
-            <ListItemButton sx={{ pl: 4 }} key={key({ length: 7 })}>
+            <ListItemButton
+              sx={{ pl: 4 }}
+              key={key({ length: 7 })}
+              onClick={() => setCategory(category)}
+            >
               <ListItemText primary={category} />
             </ListItemButton>
           ))}
         </List>
       </Collapse>
-      {CATEGORIES.map((category) => (
-        <ListItemButton key={key({ length: 7 })}>
-          <ListItemText primary={category} />
-        </ListItemButton>
-      ))}
     </List>
   );
 }

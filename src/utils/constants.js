@@ -8,8 +8,14 @@ export const SORT = {
 };
 
 export const CATEGORIES = [
-  "men's clothing",
-  "jewelery",
-  "electronics",
-  "women's clothing",
+  "Men's clothing",
+  "Jewelery",
+  "Electronics",
+  "Women's clothing",
 ];
+
+export const API = {
+  ALL_PRODUCTS: "https://e-commercial-server.herokuapp.com/products/list/all",
+  FIRST_PAGE: "https://e-commercial-server.herokuapp.com/products/list/1",
+  SECOND_PAGE: "https://e-commercial-server.herokuapp.com/products/list/2",
+};

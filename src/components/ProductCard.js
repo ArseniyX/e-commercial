@@ -70,7 +70,7 @@ const ProductDescription = styled.p`
 
 const StarsContainer = styled.div`
   display: flex;
-  width: 110px;
+  width: 130px;
 `;
 
 const StyledRate = styled.p`

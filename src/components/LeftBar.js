@@ -6,7 +6,7 @@ import { ProductsStore } from "../store/ProductsStore";
 import CategoriesList from "./CategoriesList";
 
 const LeftBarContainer = styled.div`
-  margin-right: 25px;
+  margin-right: 15px;
 `;
 
 const DepartmentsButton = styled.button`
@@ -52,8 +52,7 @@ const LeftBar = () => {
         <ButtonWrapper>Departments</ButtonWrapper>
       </DepartmentsButton>
       <CategoriesList/>
-      <Sort type="collapsed" productsStore={ProductsStore} />
-      <Sort type="expanded" productsStore={ProductsStore} />
+      <Sort productsStore={ProductsStore} />
     </LeftBarContainer>
   );
 };

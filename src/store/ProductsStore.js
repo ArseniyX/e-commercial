@@ -1,5 +1,6 @@
 import { action, makeObservable, observable, flow } from "mobx";
 import axios from "axios";
+import { API } from "../utils/constants";
 
 export class ProductsStoreImpl {
   products = [];
@@ -22,7 +23,7 @@ export class ProductsStoreImpl {
   }
 
   filterFavorites() {
-    this.filter = this.favorites.join("&")
+    this.filter = this.favorites.join("?")
   }
 
   setFilter(filter) {
@@ -44,7 +45,7 @@ export class ProductsStoreImpl {
 
   *fetch() {
     const response = yield axios
-      .get("http://localhost:3001/products/list/all")
+      .get(API.ALL_PRODUCTS)
       .then((data) => data.data);
     this.products.push(...response);
   }

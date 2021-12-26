@@ -13,8 +13,9 @@ import { ProductsStore } from "../store/ProductsStore";
 import key from "random-string";
 
 const ProductsListContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 80vw;
   justify-content: space-between;
   box-shadow: 0px 1px 2px rgba(58, 58, 68, 0.24),
     0px 2px 4px rgba(90, 91, 106, 0.24);
@@ -31,10 +32,12 @@ const ProductsList = observer(({ productsStore }) => {
   const isFiltered = (product) => {
     const title = product.title.toLowerCase();
     const description = product.description.toLowerCase();
+    const { category } = product;
     return (
       title.includes(filter) ||
       description.includes(filter) ||
-      filter.split("&").includes(title)
+      filter.split("?").includes(title) ||
+      category === filter
     );
   };
 
@@ -42,7 +45,7 @@ const ProductsList = observer(({ productsStore }) => {
     const products = productsStore.products?.slice();
     const [rateAvg, countAvg] = getAvg(products);
     console.log(rateAvg, countAvg);
-    const mapProducts = (product) =>
+    const mapProducts = (product, index) =>
       isFiltered(product) && (
         <ProductCard
           key={key({ length: 7 })}
