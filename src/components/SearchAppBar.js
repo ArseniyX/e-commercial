@@ -50,7 +50,8 @@ const Search = muiStyled("div")(({ theme }) => ({
 
 const StyledInputBase = muiStyled(InputBase)(({ theme }) => ({
   border: "none",
-  width: "100%",
+  width: "92%",
+  marginLeft: "24px",
   height: "100%",
   color: "#19191D",
   "& .MuiInputBase-input": {

@@ -16,12 +16,18 @@ design:
   ✔ make search bar filter @done (25/12/2021, 16:37:10)
   ✔ add sort functionality @done (25/12/2021, 16:37:20)
     styled-components to mui responsive design:
-      ☐ add layout from mui
-
+      ✔ add theme from mui @done (27/12/2021, 20:13:51)
+      ✔ add mui to SideBar @done (27/12/2021, 20:46:43)
+      ✔ add menu bar for xl screens @done (27/12/2021, 20:54:32)
+      ✔ try to style the Header for xl screens @done (27/12/2021, 21:26:24)
+      ✔ make sidebar short as content @done (27/12/2021, 20:35:21)
+      ✔ add border radius to sidebar and header @done (27/12/2021, 20:35:19)
   
 project:
   ✔ add routes @done (23/12/2021, 15:24:25)
   ✔ add store @done (23/12/2021, 19:38:28)
   ✔ make search clear button @done (24/12/2021, 16:20:24)
   ✔ add categories to constant @done (25/12/2021, 22:29:56)
-  ☐ create accordion with categories
+  ✔ create accordion with categories @done (27/12/2021, 20:16:31)
+  ☐ add possibility to toggle sidebar in xl screens
+  ☐ swap categories to the top

@@ -3,11 +3,9 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import {
   Collapse,
   FormControl,
-  FormControlLabel,
   List,
   ListItemButton,
   ListItemText,
-  Radio,
   RadioGroup,
 } from "@mui/material";
 import { observer } from "mobx-react";

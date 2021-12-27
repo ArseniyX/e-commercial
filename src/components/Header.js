@@ -7,6 +7,7 @@ import { ProductsStore } from "../store/ProductsStore";
 import { observer } from "mobx-react";
 import { SORT } from "../utils/constants";
 import { AppBar, Box, Grid, Toolbar } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const LogoImg = styled.img`
   width: 100%;
@@ -63,12 +64,6 @@ const WatchButton = styled(StyledButton)`
   }
 `;
 
-const HeaderContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-`;
-
 const Header = observer(() => {
   const onWatch = () => {
     ProductsStore.filterFavorites();
@@ -82,26 +77,38 @@ const Header = observer(() => {
   const { length } = ProductsStore.favorites;
   return (
     <Box sx={{ flexGrow: 1, padding: "8px 0" }}>
-      <AppBar position="static" style={{ background: "#fff" }}>
+      <AppBar position="static" style={{ background: "#fff", borderRadius: 4 }}>
         <Toolbar style={{ padding: "10px" }}>
           <Grid container spacing={5}>
-            <Grid item lg={3} md={3} sm={4}>
+            <Grid item xl={3} lg={3} md={3} sm={4} xs={12}>
+              <MenuIcon
+                sx={{ color: "#000", width: "22px", display: "none" }}
+              />
               <LogoImg src={logo} alt="logo" onClick={onLogo} />
             </Grid>
-            <Grid item lg={5} md={4} sm={8}>
+            <Grid item xl={5} lg={4} md={4} sm={8} xs={12}>
               <Search productsStore={ProductsStore} />
             </Grid>
             <Box sx={{ flexGrow: 1 }} />
-            <Grid item container spacing={2} lg={4} md={5} sm={12}>
-              <Grid item lg={4} md={4} sm>
+            <Grid
+              item
+              container
+              spacing={3}
+              xl={4}
+              lg={4}
+              md={5}
+              sm={12}
+              xs={12}
+            >
+              <Grid item xl lg md sm={5} xs={5}>
                 <WatchButton count={length} onClick={onWatch}>
                   Watch
                 </WatchButton>
               </Grid>
-              <Grid item lg={4} md={4} sm>
+              <Grid item xl lg md sm={5} xs={5}>
                 <StyledButton>My cart</StyledButton>
               </Grid>
-              <Grid item lg={4} md={4} sm style={{ textAlign: "center" }}>
+              <Grid item xl lg md sm={2} xs={2} style={{ textAlign: "center" }}>
                 <img src={avatar} alt="avatar" style={{ width: "48px" }} />
               </Grid>
             </Grid>

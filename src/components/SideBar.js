@@ -4,21 +4,14 @@ import menuIcon from "../assets/icons/menu.svg";
 import Sort from "./Sort";
 import { ProductsStore } from "../store/ProductsStore";
 import CategoriesList from "./CategoriesList";
-import { Drawer, useMediaQuery } from "@mui/material";
-
-const LeftBarContainer = styled.div`
-  margin-right: 15px;
-  margin-top: 8px;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-`;
+import { Box, Button, Drawer, useMediaQuery } from "@mui/material";
 
 const DepartmentsButton = styled.button`
   width: 95%;
   margin: 5px auto;
-  padding: 0 10px;
+  padding: 5px 15px;
   /* White 100% */
-  background: #ffffff;
+  background: #fff;
 
   /* Blue / 30 */
   border: 1px solid #9dc2ff;
@@ -28,7 +21,7 @@ const DepartmentsButton = styled.button`
   font-family: "Quicksand", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 150%;
 
   /* or 36px */
@@ -40,33 +33,46 @@ const DepartmentsButton = styled.button`
   color: #2264d1;
 `;
 
-const ButtonWrapper = styled.span`
-  margin: auto;
-`;
-
 const MenuIcon = styled.img`
   margin: 7px;
 `;
 
 const sideBar = (
   <>
-    <DepartmentsButton>
-      <MenuIcon src={menuIcon} alt="menu-icon" />
-      <ButtonWrapper>Departments</ButtonWrapper>
-    </DepartmentsButton>
+    <Button
+      variant="outlined"
+      sx={{
+        m: 1,
+        fontFamily: "Quicksand, sans-serif",
+        fontWeight: "bold",
+        fontSize: "22px",
+        lineHeight: "150%",
+        color: "#2264d1",
+      }}
+      startIcon={<MenuIcon src={menuIcon} alt="menu-icon" />}
+    >
+      Departments
+    </Button>
     <CategoriesList isOpen={false} />
     <Sort isOpen={false} productsStore={ProductsStore} />
   </>
 );
 
-const SideBar = ({ isOpen = false, openDrawer = false }) => {
+const sideBarBox = {
+  display: "flex",
+  flexDirection: "column",
+  boxShadow: 5,
+  m: "8px 8px 0 0",
+  height: "100%",
+  borderRadius: 1,
+};
 
+const SideBar = ({ openDrawer = false }) => {
   const matches = useMediaQuery("(max-width:600px)");
-  console.log(matches)
   return matches ? (
     <Drawer open={openDrawer}>{sideBar}</Drawer>
   ) : (
-    <LeftBarContainer>{sideBar}</LeftBarContainer>
+    <Box sx={sideBarBox}>{sideBar}</Box>
   );
 };
 
