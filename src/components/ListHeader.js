@@ -9,14 +9,14 @@ const ListHeader = () => {
   const options = Object.values(SORT);
 
   return (
-    <Container style={{ padding: "18px 0", display: "flex" }}>
-      <Box spacing={2} sx={{ display: "flex" }}>
+    <Container style={{ padding: "18px 0" }}>
+      <Box spacing={2} sx={{ display: "flex", flexWrap: "wrap" }}>
         <Autocomplete
           disablePortal
           value={SORT.RECENTLY_ADDED}
           id="combo-box-demo"
           options={options}
-          sx={{ width: 200, mr: 1 }}
+          sx={{ width: 200, mr: 1, mb: 2 }}
           renderInput={(params) => <TextField {...params} label="SORT BY" />}
         />
         <Autocomplete
@@ -25,7 +25,7 @@ const ListHeader = () => {
           value={"condition"}
           id="combo-box-demo"
           options={[]}
-          sx={{ width: 150, mr: 1 }}
+          sx={{ width: 150, mr: 1, mb: 2 }}
           renderInput={(params) => <TextField {...params} />}
         />
         <Autocomplete
@@ -34,7 +34,7 @@ const ListHeader = () => {
           value={"Delivery options"}
           id="combo-box-demo"
           options={[]}
-          sx={{ width: 180 }}
+          sx={{ width: 180, mr: 1, mb: 2 }}
           renderInput={(params) => <TextField {...params} />}
         />
       </Box>

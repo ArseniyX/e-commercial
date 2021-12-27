@@ -5,33 +5,7 @@ import Sort from "./Sort";
 import { ProductsStore } from "../store/ProductsStore";
 import CategoriesList from "./CategoriesList";
 import { Box, Button, Drawer, useMediaQuery } from "@mui/material";
-
-const DepartmentsButton = styled.button`
-  width: 95%;
-  margin: 5px auto;
-  padding: 5px 15px;
-  /* White 100% */
-  background: #fff;
-
-  /* Blue / 30 */
-  border: 1px solid #9dc2ff;
-  box-sizing: border-box;
-  border-radius: 8px;
-
-  font-family: "Quicksand", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 150%;
-
-  /* or 36px */
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  /* Blue / 70 */
-  color: #2264d1;
-`;
+import { UiStore } from "../store/UiStore";
 
 const MenuIcon = styled.img`
   margin: 7px;
@@ -68,7 +42,10 @@ const sideBarBox = {
 };
 
 const SideBar = ({ openDrawer = false }) => {
-  const matches = useMediaQuery("(max-width:600px)");
+  const matches = useMediaQuery("(max-width:900px)");
+  if(matches) {
+    UiStore.toggleSideBar()
+  }
   return matches ? (
     <Drawer open={openDrawer}>{sideBar}</Drawer>
   ) : (

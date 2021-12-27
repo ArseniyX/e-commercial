@@ -15,19 +15,6 @@ import ListHeader from "./ListHeader";
 import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
 
-const ListContainer = styled.div`
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  border-radius: 8px;
-  width: 80vw;
-  margin: 10px 0;
-`;
-
-const ProductsListContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-`;
-
 const ProductsList = observer(({ productsStore }) => {
   useEffect(() => {
     productsStore.fetch();
