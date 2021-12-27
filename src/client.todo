@@ -15,6 +15,9 @@ design:
   ✔ style product card @done (25/12/2021, 11:51:41)
   ✔ make search bar filter @done (25/12/2021, 16:37:10)
   ✔ add sort functionality @done (25/12/2021, 16:37:20)
+    styled-components to mui responsive design:
+      ☐ add layout from mui
+
   
 project:
   ✔ add routes @done (23/12/2021, 15:24:25)

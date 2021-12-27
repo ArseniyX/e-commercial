@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Header from "../components/Header";
-import LeftBar from "../components/LeftBar";
+import SideBar from "../components/SideBar";
 
 const MainContainer = styled.div`
-  margin: 20px;
+  margin: 0 20px;
 `
 
 const MainLayout = ({ children }) => {
@@ -11,10 +11,8 @@ const MainLayout = ({ children }) => {
     <MainContainer>
       <Header />
       <div style={{display: "flex", width: "100%"}}>
-        <LeftBar />
+        <SideBar />
         <main>
-          {/* <MenuBar /> */}
-          {/* <RecommendedBar /> */}
           {children}
         </main>
       </div>

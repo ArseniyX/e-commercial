@@ -5,10 +5,11 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
 import styled from "styled-components";
 import { ReactComponent as Heart } from "../assets/icons/heart.svg";
+import { Grid } from "@mui/material";
 
 const Card = styled.div`
   padding: 10px;
-  max-width: 210px;
+  max-width: 230px;
   margin: 10px;
 
   &:hover {
@@ -129,8 +130,9 @@ const ProductCard = ({ product, productsStore }) => {
   };
 
   return (
-    <Card>
+    <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
       <CardMedia
+        sx={{ objectFit: "contain" }}
         component="img"
         height="194"
         image={product?.image}
@@ -160,7 +162,7 @@ const ProductCard = ({ product, productsStore }) => {
           Watch
         </WatchButton>
       </CardActions>
-    </Card>
+    </Grid>
   );
 };
 

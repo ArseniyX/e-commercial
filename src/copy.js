@@ -12,8 +12,6 @@ import {
 import { ProductsStore } from "../store/ProductsStore";
 import key from "random-string";
 import ListHeader from "./ListHeader";
-import { Box } from "@mui/system";
-import { Grid } from "@mui/material";
 
 const ListContainer = styled.div`
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -94,12 +92,10 @@ const ProductsList = observer(({ productsStore }) => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, p: 1, boxShadow: 5, m: "8px 0", borderRadius: 1}}>
+    <ListContainer>
       <ListHeader />
-      <Grid container spacing={3}>
-        {createProductsList()}
-      </Grid>
-    </Box>
+      <ProductsListContainer>{createProductsList()}</ProductsListContainer>
+    </ListContainer>
   );
 });
 

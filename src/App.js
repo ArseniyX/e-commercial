@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./routes/MainRoute";
 
-
 function App() {
   return (
     <Routes>

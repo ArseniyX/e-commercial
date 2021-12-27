@@ -9,8 +9,8 @@ import { CATEGORIES } from "../utils/constants";
 import key from "random-string";
 import { ProductsStore } from "../store/ProductsStore";
 
-export default function CategoriesList() {
-  const [open, setOpen] = React.useState(true);
+export default function CategoriesList({ isOpen }) {
+  const [open, setOpen] = React.useState(isOpen);
 
   const handleClick = () => {
     setOpen(!open);

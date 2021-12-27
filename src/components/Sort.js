@@ -14,11 +14,12 @@ import { observer } from "mobx-react";
 import key from "random-string";
 import React from "react";
 import { SORT } from "../utils/constants";
+import SortItem from "./SortItem";
 
 const sortNames = Object.values(SORT);
 
-const Sort = observer(({ productsStore }) => {
-  const [open, setOpen] = React.useState(true);
+const Sort = observer(({ productsStore, isOpen }) => {
+  const [open, setOpen] = React.useState(isOpen);
   const [value, setValue] = React.useState(SORT.RECENTLY_ADDED);
 
   const handleChange = (event) => {
@@ -27,11 +28,6 @@ const Sort = observer(({ productsStore }) => {
 
   const handleClick = () => {
     setOpen(!open);
-  };
-
-  const setSort = (sort) => {
-    productsStore.setSort(sort);
-    console.log(productsStore.sort);
   };
 
   return (
@@ -54,17 +50,11 @@ const Sort = observer(({ productsStore }) => {
               onChange={handleChange}
             >
               {sortNames.map((sortName) => (
-                <ListItemButton
-                  sx={{ pl: 4, height: 50 }}
+                <SortItem
                   key={key({ length: 7 })}
-                  onClick={() => setSort(sortName)}
-                >
-                  <FormControlLabel
-                    value={sortName}
-                    control={<Radio />}
-                    label={sortName}
-                  />
-                </ListItemButton>
+                  productsStore={productsStore}
+                  sortName={sortName}
+                />
               ))}
             </RadioGroup>
           </FormControl>
