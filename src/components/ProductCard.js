@@ -114,7 +114,6 @@ const ProductCard = ({ product, productsStore }) => {
     setHeartColor(heartColor === "red" ? "#2979FF" : "red");
     productsStore.addFavorite(product.title.toLowerCase());
   };
-
   return (
     <Grid item xl={3} lg={3} md={6} sm={6} xs={12}>
       <CardMedia
@@ -130,7 +129,12 @@ const ProductCard = ({ product, productsStore }) => {
       <ProductDescription variant="body2" color="text.secondary">
         {product?.description}
       </ProductDescription>
-      <CardActions sx={{ borderBottom: "0.5px solid rgba(0,0,0,0.2)", justifyContent: "space-between" }}>
+      <CardActions
+        sx={{
+          borderBottom: "0.5px solid rgba(0,0,0,0.2)",
+          justifyContent: "space-between",
+        }}
+      >
         <StarsContainer>
           <StarsRating
             count={5}

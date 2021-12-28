@@ -20,11 +20,6 @@ const ProductsList = observer(({ productsStore }) => {
     productsStore.fetch();
   }, [productsStore]);
 
-  const [isLoading, setLoading] = React.useState(true);
-  useEffect(() => {
-    setLoading(false);
-  }, []);
-
   const { filter, sort } = productsStore;
 
   const isFiltered = (product) => {
@@ -41,7 +36,6 @@ const ProductsList = observer(({ productsStore }) => {
 
   const productCard = (product) => (
     <ProductCard
-      isLoading={isLoading}
       key={key({ length: 7 })}
       product={product}
       productsStore={ProductsStore}
@@ -52,9 +46,8 @@ const ProductsList = observer(({ productsStore }) => {
     const [first, second] = productsStore.range;
     const products = productsStore.products;
     const loading = !productsStore.products.length;
-    if(loading) {
-      
-    } 
+    if (loading) {
+    }
     const slicedProducts = products
       .slice()
       .filter(({ price }) => first < price && second > price);
@@ -96,11 +89,22 @@ const ProductsList = observer(({ productsStore }) => {
     }
   };
 
+  const createSkeletonsList = () => (
+    <>
+      {[...Array(20).keys()].map(() => (
+        <CardSkeleton key={key({length: 7})} />
+      ))}
+    </>
+  );
+
+  const { length: isLoaded } = productsStore.products;
+
   return (
     <Box sx={{ flexGrow: 1, p: 1, boxShadow: 5, m: "8px 0", borderRadius: 1 }}>
       <ListHeader />
       <Grid container spacing={3}>
-        {productsStore.products && createProductsList()}
+        {!isLoaded && createSkeletonsList()}
+        {isLoaded && createProductsList()}
       </Grid>
     </Box>
   );
