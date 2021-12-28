@@ -4,8 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
 import styled from "styled-components";
 import { ReactComponent as Heart } from "../assets/icons/heart.svg";
-import { Grid, Skeleton } from "@mui/material";
-import CardSkeleton from "../ui-components/Skeleton/CardSkeleton";
+import { Grid } from "@mui/material";
 
 const ProductTitle = styled.h4`
   height: 72px;
@@ -131,7 +130,7 @@ const ProductCard = ({ product, productsStore }) => {
       <ProductDescription variant="body2" color="text.secondary">
         {product?.description}
       </ProductDescription>
-      <CardActions sx={{ borderBottom: "0.5px solid rgba(0,0,0,0.2)" }}>
+      <CardActions sx={{ borderBottom: "0.5px solid rgba(0,0,0,0.2)", justifyContent: "space-between" }}>
         <StarsContainer>
           <StarsRating
             count={5}

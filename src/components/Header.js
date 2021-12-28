@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import muiStyled from "@mui/styled-engine";
-import logo from "../assets/images/logo.svg";
-import avatar from "../assets/images/avatar.svg";
+import logo from "../assets/icons/logo.svg";
+import avatar from "../assets/icons/avatar.svg";
 import Search from "./SearchAppBar";
 import { ProductsStore } from "../store/ProductsStore";
 import { observer } from "mobx-react";
@@ -68,7 +67,7 @@ const LogoImage = muiStyled("img")(() => ({
 }));
 
 const LogoText = muiStyled(Typography)(() => ({
-  fontFamily: "Red Hat Display",
+  fontFamily: '\'Red Hat Display\', sans-serif',
   fontStyle: "normal",
   fontWeight: "500",
   fontSize: "36px",
