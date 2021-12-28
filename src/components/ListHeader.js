@@ -32,7 +32,7 @@ const ListHeader = () => {
           value={"condition"}
           id="combo-box-demo"
           options={[]}
-          sx={{ width: 150, mr: 1, mb: 2 }}
+          sx={{ width: 110, mr: 1, mb: 2 }}
           renderInput={(params) => <TextField {...params} />}
         />
         <Autocomplete
@@ -41,7 +41,7 @@ const ListHeader = () => {
           value={"Delivery options"}
           id="combo-box-demo"
           options={[]}
-          sx={{ width: 180, mr: 1, mb: 2 }}
+          sx={{ width: 200, mr: 1, mb: 2 }}
           renderInput={(params) => <TextField {...params} />}
         />
       </Box>
