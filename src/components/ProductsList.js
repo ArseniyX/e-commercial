@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { observer } from "mobx-react";
 import ProductCard from "./ProductCard";
-import styled from "styled-components";
 import { SORT } from "../utils/constants";
 import getAvg from "../utils/getAvg";
 import {
@@ -14,11 +13,17 @@ import key from "random-string";
 import ListHeader from "./ListHeader";
 import { Box } from "@mui/system";
 import { Grid } from "@mui/material";
+import CardSkeleton from "../ui-components/Skeleton/CardSkeleton";
 
 const ProductsList = observer(({ productsStore }) => {
   useEffect(() => {
     productsStore.fetch();
   }, [productsStore]);
+
+  const [isLoading, setLoading] = React.useState(true);
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
   const { filter, sort } = productsStore;
 
@@ -36,6 +41,7 @@ const ProductsList = observer(({ productsStore }) => {
 
   const productCard = (product) => (
     <ProductCard
+      isLoading={isLoading}
       key={key({ length: 7 })}
       product={product}
       productsStore={ProductsStore}
@@ -43,24 +49,34 @@ const ProductsList = observer(({ productsStore }) => {
   );
 
   const createProductsList = () => {
-    const products = productsStore.products?.slice();
+    const [first, second] = productsStore.range;
+    const products = productsStore.products;
+    const loading = !productsStore.products.length;
+    if(loading) {
+      
+    } 
+    const slicedProducts = products
+      .slice()
+      .filter(({ price }) => first < price && second > price);
     const [rateAvg, countAvg] = getAvg(products);
 
     const mapProducts = (product) =>
-      isFiltered(product) && productCard(product);
+      isFiltered(product) && productCard(product, loading);
 
-    const defaultSort = products.map(mapProducts);
+    const defaultSort = slicedProducts.map(mapProducts);
 
-    const recommendedSort = products
+    const recommendedSort = slicedProducts
       .sort((a, b) => compareByRecommended(a, b, rateAvg, countAvg))
       .map(mapProducts);
 
-    const expiredSort = products.reverse().map(mapProducts);
+    const expiredSort = slicedProducts.reverse().map(mapProducts);
 
-    const sortMostRated = products.sort(compareByRate).map(mapProducts);
+    const sortMostRated = slicedProducts.sort(compareByRate).map(mapProducts);
 
     const sortByPrice = (isPricy) =>
-      products.sort((a, b) => compareByPrice(a, b, isPricy)).map(mapProducts);
+      slicedProducts
+        .sort((a, b) => compareByPrice(a, b, isPricy))
+        .map(mapProducts);
 
     switch (sort) {
       case SORT.RECENTLY_ADDED:
@@ -81,10 +97,10 @@ const ProductsList = observer(({ productsStore }) => {
   };
 
   return (
-    <Box sx={{ flexGrow: 1, p: 1, boxShadow: 5, m: "8px 0", borderRadius: 1}}>
+    <Box sx={{ flexGrow: 1, p: 1, boxShadow: 5, m: "8px 0", borderRadius: 1 }}>
       <ListHeader />
       <Grid container spacing={3}>
-        {createProductsList()}
+        {productsStore.products && createProductsList()}
       </Grid>
     </Box>
   );

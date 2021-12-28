@@ -1,15 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import menuIcon from "../assets/icons/menu.svg";
-import Sort from "./Sort";
-import { ProductsStore } from "../store/ProductsStore";
 import CategoriesList from "./CategoriesList";
-import { Box, Button, Drawer, useMediaQuery } from "@mui/material";
-import { UiStore } from "../store/UiStore";
-
-const MenuIcon = styled.img`
-  margin: 7px;
-`;
+import { Box, Button, Drawer, IconButton, useMediaQuery } from "@mui/material";
+import PriceRange from "./PriceRange";
+import { observer } from "mobx-react";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const sideBar = (
   <>
@@ -28,7 +24,8 @@ const sideBar = (
       Departments
     </Button>
     <CategoriesList isOpen={false} />
-    <Sort isOpen={false} productsStore={ProductsStore} />
+    {/* <Sort isOpen={false} productsStore={ProductsStore} /> */}
+    <PriceRange isOpen />
   </>
 );
 
@@ -41,16 +38,36 @@ const sideBarBox = {
   borderRadius: 1,
 };
 
-const SideBar = ({ openDrawer = false }) => {
+const SideBar = observer(({ uiStore }) => {
+  const closeSideBar = () => {
+    uiStore.toggleSideBar();
+  };
+
   const matches = useMediaQuery("(max-width:900px)");
-  if(matches) {
-    UiStore.toggleSideBar()
-  }
+  const openDrawer = uiStore.isSideBar;
+  console.log(openDrawer);
   return matches ? (
-    <Drawer open={openDrawer}>{sideBar}</Drawer>
+    <Drawer open={openDrawer}>
+      <IconButton
+        onClick={closeSideBar}
+        color="primary"
+        aria-label="upload picture"
+        component="span"
+        sx={{width: "70px"}}
+      >
+        <MenuIcon
+          sx={{
+            fontSize: "3rem",
+            color: "#000",
+            width: "46px",
+          }}
+        />
+      </IconButton>
+      {sideBar}
+    </Drawer>
   ) : (
     <Box sx={sideBarBox}>{sideBar}</Box>
   );
-};
+});
 
 export default SideBar;

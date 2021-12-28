@@ -23,6 +23,7 @@ design:
       ✔ make sidebar short as content @done (27/12/2021, 20:35:21)
       ✔ add border radius to sidebar and header @done (27/12/2021, 20:35:19)
       ✔ change Header buttons to mui @done (27/12/2021, 22:31:23)
+      ☐ add skeletons
   
 project:
   ✔ add routes @done (23/12/2021, 15:24:25)
@@ -30,5 +31,9 @@ project:
   ✔ make search clear button @done (24/12/2021, 16:20:24)
   ✔ add categories to constant @done (25/12/2021, 22:29:56)
   ✔ create accordion with categories @done (27/12/2021, 20:16:31)
-  ☐ add possibility to toggle sidebar in xl screens
-  ☐ swap categories to the top
+  ✔ add possibility to toggle sidebar in xl screens @done (28/12/2021, 14:18:10)
+  ✔ swap categories to the top @done (28/12/2021, 11:06:50)
+  ✔ add price range @done (28/12/2021, 12:44:59)
+  ✘ add filter by stars, no sense @cancelled (28/12/2021, 13:34:33)
+  ✔ change the icon in Header @done (28/12/2021, 15:40:17)
+  ✔ change the logo to icon and text @done (28/12/2021, 15:40:18)

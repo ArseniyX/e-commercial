@@ -7,6 +7,7 @@ export class ProductsStoreImpl {
   favorites = [];
   filter = "";
   sort = "Recently Added";
+  range = [0, 1000];
 
   constructor() {
     makeObservable(this, {
@@ -19,11 +20,13 @@ export class ProductsStoreImpl {
       favorites: observable,
       addFavorite: action,
       filterFavorites: action,
+      range: observable,
+      setRange: action,
     });
   }
 
   filterFavorites() {
-    this.filter = this.favorites.join("?")
+    this.filter = this.favorites.join("?");
   }
 
   setFilter(filter) {
@@ -32,6 +35,10 @@ export class ProductsStoreImpl {
 
   setSort(sortName) {
     this.sort = sortName;
+  }
+
+  setRange(range) {
+    this.range = range;
   }
 
   addFavorite(name) {

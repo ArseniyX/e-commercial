@@ -1,19 +1,26 @@
 import { Autocomplete, Box, Container, TextField } from "@mui/material";
 import React from "react";
-import styled from "styled-components";
+import { ProductsStore } from "../store/ProductsStore";
 import { SORT } from "../utils/constants";
-
-const ListHederContainer = styled.div``;
 
 const ListHeader = () => {
   const options = Object.values(SORT);
+
+  const onCategorySelect = (_, categoryName) => {
+    if(categoryName == null) {
+      return
+    }
+    ProductsStore.setSort(categoryName);
+    console.log(categoryName)
+  };
 
   return (
     <Container style={{ padding: "18px 0" }}>
       <Box spacing={2} sx={{ display: "flex", flexWrap: "wrap" }}>
         <Autocomplete
           disablePortal
-          value={SORT.RECENTLY_ADDED}
+          defaultValue={SORT.RECENTLY_ADDED}
+          onChange={onCategorySelect}
           id="combo-box-demo"
           options={options}
           sx={{ width: 200, mr: 1, mb: 2 }}

@@ -1,23 +1,11 @@
 import * as React from "react";
-// import Card from "@mui/material/Card";
 import StarsRating from "stars-rating";
 import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
 import styled from "styled-components";
 import { ReactComponent as Heart } from "../assets/icons/heart.svg";
-import { Grid } from "@mui/material";
-
-const Card = styled.div`
-  padding: 10px;
-  max-width: 230px;
-  margin: 10px;
-
-  &:hover {
-    box-shadow: 0px 2px 4px rgba(59, 69, 123, 0.2),
-      0px 4px 8px rgba(92, 107, 192, 0.2);
-    border-radius: 8px;
-  }
-`;
+import { Grid, Skeleton } from "@mui/material";
+import CardSkeleton from "../ui-components/Skeleton/CardSkeleton";
 
 const ProductTitle = styled.h4`
   height: 72px;
@@ -116,7 +104,6 @@ const HeartIcon = styled(Heart)`
 
 const ProductCard = ({ product, productsStore }) => {
   const [heartColor, setHeartColor] = React.useState("#2979FF");
-
   React.useEffect(() => {
     const title = product.title.toLowerCase();
     if (productsStore.favorites.includes(title)) {
@@ -138,15 +125,13 @@ const ProductCard = ({ product, productsStore }) => {
         image={product?.image}
         alt="Paella dish"
       />
+
       <ProductTitle>{product.title}</ProductTitle>
       <ProductPrice variant="h5">${product.price}</ProductPrice>
       <ProductDescription variant="body2" color="text.secondary">
         {product?.description}
       </ProductDescription>
-      <CardActions
-        disableSpacing
-        style={{ padding: "5px 0", justifyContent: "space-between" }}
-      >
+      <CardActions sx={{ borderBottom: "0.5px solid rgba(0,0,0,0.2)" }}>
         <StarsContainer>
           <StarsRating
             count={5}

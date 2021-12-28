@@ -1,7 +1,7 @@
 import { action, makeObservable, observable } from "mobx";
 
 export class UiStoreImpl {
-  isSideBar = "false";
+  isSideBar = false
 
   constructor() {
     makeObservable(this, {
